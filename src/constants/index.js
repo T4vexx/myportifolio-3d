@@ -309,15 +309,15 @@ import {
         "Uma plataforma de noticias sobre programação e tecnologia usando NextsJs e typescript. Aqui você consegue se tornar um assinante para ler a notícia por inteiro. Pagamento usando stripe. Armazenamento usando Fauna DB",
       tags: [
         {
-          name: "react",
+          name: "nextjs",
           color: "blue-text-gradient",
         },
         {
-          name: "lua",
+          name: "chakra-ui",
           color: "green-text-gradient",
         },
         {
-          name: "webpack",
+          name: "stripe",
           color: "pink-text-gradient",
         },
       ],
