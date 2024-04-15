@@ -6,6 +6,7 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import user from "./user.png"
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -25,6 +26,7 @@ import meta from "./company/meta.png";
 import rgx from "./company/rgx.png";
 import burn from "./company/burn.png";
 import eccjr from "./company/eccjr.png";
+import usebens from "./company/usebens.png";
 
 import cacic from "./cacic.png"
 import semaped from "./semaped.png"
@@ -35,6 +37,8 @@ import tripguide from "./tripguide.png";
 import conce from "./conce.png"
 import tablet from "./tablet.png"
 import ignewes from "./ignewes.png"
+
+import rafaela from "./rafaela.webp"
 
 export {
   tablet,
@@ -71,4 +75,7 @@ export {
   tripguide,
   semac,
   cacic,
+  usebens,
+  user,
+  rafaela,
 };
