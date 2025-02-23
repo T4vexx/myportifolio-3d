@@ -1,9 +1,45 @@
 import { motion } from "framer-motion";
-
+import { useLanguage } from '../contexts/LanguageContext'
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
 
+const translations = {
+  pt: {
+    intro: "Olá, eu sou",
+    description: (
+      <>
+        Sou desenvolvedor <span className="text-[#915EFF]">fullstack</span>, crio aplicações web, também
+        <br className="sm:block hidden" />
+        desenvolvo C, GO lang e JAVA
+      </>
+    ),
+  },
+  en: {
+    intro: "Hello, I am",
+    description: (
+      <>
+        I am a <span className="text-[#915EFF]">fullstack</span> developer, I build web applications, and I also
+        <br className="sm:block hidden" />
+        develop in C, GO lang, and JAVA
+      </>
+    ),
+  },
+  de: {
+    intro: "Hallo, ich bin",
+    description: (
+      <>
+        Ich bin <span className="text-[#915EFF]">Fullstack</span>-Entwickler, entwickle Webanwendungen und
+        <br className="sm:block hidden" />
+        programmiere auch in C, GO lang und JAVA
+      </>
+    ),
+  },
+};
+
 const Hero = () => {
+   const { language } = useLanguage();
+    const { intro, description } = translations[language];
+
   return (
     <section className={`relative w-full h-screen mx-auto`}>
       <div
@@ -16,11 +52,10 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Olá, eu sou <span className='text-[#915EFF]'>Otávio</span>
+            {intro} <span className='text-[#915EFF]'>Otávio</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Sou desenvolvedor <span className='text-[#915EFF]'>fullstack</span>, crio aplicações web, também <br className='sm:block hidden' />
-            faço projetos em C e JAVA
+            {description}
           </p>
         </div>
       </div>

@@ -6,9 +6,11 @@ import SectionWrapper from "../hoc/SectionWrapper"
 import { projects } from "../constants"
 import { fadeIn, textVariant } from '../utils/motion'
 import { isMobile } from 'react-device-detect';
+import { useLanguage } from "../contexts/LanguageContext"
 
 
 const ProjectCard = ({ index, name, description, tags, image, source_code_link}) => {
+  const { language } = useLanguage();
 
   return (
     <>
@@ -24,7 +26,7 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link})
          <div className="relative w-full h-[230px]">
            <img 
              src={image}
-             alt={name}
+             alt={name[language]}
              className="w-full h-full object-cover rounded-2xl"
            />
 
@@ -43,8 +45,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link})
          </div>
 
          <div className="mt-5">
-           <h3 className="text-white font-bold text-[24px]">{name}</h3>
-           <p className="mt-2 text-secondary text-[14px]">{description}</p>
+           <h3 className="text-white font-bold text-[24px]">{name[language]}</h3>
+           <p className="mt-2 text-secondary text-[14px]">{description[language]}</p>
          </div>
 
          <div className="mt-4 flex flex-wrap gap-2">
@@ -68,7 +70,7 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link})
           <div className="relative w-full h-[230px]">
             <img 
               src={image}
-              alt={name}
+              alt={name[language]}
               className="w-full h-full object-cover rounded-2xl"
             />
 
@@ -87,8 +89,8 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link})
           </div>
 
           <div className="mt-5">
-            <h3 className="text-white font-bold text-[24px]">{name}</h3>
-            <p className="mt-2 text-secondary text-[14px]">{description}</p>
+            <h3 className="text-white font-bold text-[24px]">{name[language]}</h3>
+            <p className="mt-2 text-secondary text-[14px]">{description[language]}</p>
           </div>
 
           <div className="mt-4 flex flex-wrap gap-2">
@@ -105,27 +107,47 @@ const ProjectCard = ({ index, name, description, tags, image, source_code_link})
   )
 }
 
+const translations = {
+  pt: {
+    intro: "Meus trabalhos",
+    description: "Projetos.",
+    presentation: "Os exemplos abaixo refletem minha habilidade em criar soluções eficientes e escaláveis para resolver problemas complexos. Além disso, evidencio minha capacidade em gerenciar projetos com agilidade, atendendo aos prazos e colaborando com equipes multidisciplinares. Não deixe de conferir o código, no github, dos projetos para uma visão concreta das minhas habilidades. Juntos, podemos alcançar resultados que superem todas as expectativas.",
+  },
+  en: {
+    intro: "My work",
+    description: "Projects.",
+    presentation: "The examples below reflect my ability to create efficient and scalable solutions to solve complex problems. Additionally, they highlight my capability to manage projects with agility, meeting deadlines and collaborating with multidisciplinary teams. Be sure to check out the project code on GitHub for a concrete view of my skills. Together, we can achieve results that exceed all expectations.",
+  },
+  de: {
+    intro: "Meine Arbeiten",
+    description: "Projekte.",
+    presentation: "Die folgenden Beispiele zeigen meine Fähigkeit, effiziente und skalierbare Lösungen zur Bewältigung komplexer Probleme zu entwickeln. Außerdem verdeutlichen sie meine Kompetenz im agilen Projektmanagement, die Einhaltung von Fristen und die Zusammenarbeit mit interdisziplinären Teams. Schauen Sie sich unbedingt den Code der Projekte auf GitHub an, um einen konkreten Einblick in meine Fähigkeiten zu erhalten. Gemeinsam können wir Ergebnisse erzielen, die alle Erwartungen übertreffen.",
+  },
+};
+
 const Works = () => {
+  const { language } = useLanguage();
+  const { intro, description, presentation } = translations[language];
+
   return (
     <>
     {isMobile ? (
       <>
          <p className={styles.sectionSubText}>
-          Meus trabalhos
+          {intro}
         </p>
         <h2 className={styles.sectionHeadText}>
-          Projetos.
+          {description}
         </h2>
 
         <p className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]">
-          Os exemplos abaixo refletem minha habilidade em criar soluções eficientes e escaláveis para resolver problemas complexos. Além disso, evidencio minha capacidade em gerenciar projetos com agilidade, atendendo aos prazos e colaborando com equipes multidisciplinares.
-          Não deixe de conferir o código, no github, dos projetos para uma visão concreta das minhas habilidades. Juntos, podemos alcançar resultados que superem todas as expectativas.
+         {presentation}
         </p>
 
         <div className="mt-20 flex flex-wrap gap-7">
         {projects.map((project, index) => (
           <ProjectCard 
-            key={project.name}
+            key={project.name[language]}
             index={index}
             {...project}
           />
@@ -138,10 +160,10 @@ const Works = () => {
         variants={textVariant()}    
       >
         <p className={styles.sectionSubText}>
-          Meus trabalhos
+          {intro}
         </p>
         <h2 className={styles.sectionHeadText}>
-          Projetos.
+          {description}
         </h2>
       </motion.div>
 
@@ -149,14 +171,13 @@ const Works = () => {
         variants={fadeIn("", "", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]"
       >
-        Os exemplos abaixo refletem minha habilidade em criar soluções eficientes e escaláveis para resolver problemas complexos. Além disso, evidencio minha capacidade em gerenciar projetos com agilidade, atendendo aos prazos e colaborando com equipes multidisciplinares.
-        Não deixe de conferir o código, no github, dos projetos para uma visão concreta das minhas habilidades. Juntos, podemos alcançar resultados que superem todas as expectativas.
+        {presentation}
       </motion.p>
 
       <div className="mt-20 flex flex-wrap gap-7">
         {projects.map((project, index) => (
           <ProjectCard 
-            key={project.name}
+            key={project.source_code_link}
             index={index}
             {...project}
           />

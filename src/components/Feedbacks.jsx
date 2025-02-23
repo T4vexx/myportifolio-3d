@@ -3,6 +3,7 @@ import { styles } from "../styles"
 import SectionWrapper from "../hoc/SectionWrapper"
 import { fadeIn, textVariant } from "../utils/motion"
 import { testimonials } from "../constants"
+import { useLanguage } from "../contexts/LanguageContext"
 
 const FeedbackCard = ({ index, testimonial, name, designation, company, image }) => {
   return (
@@ -35,19 +36,38 @@ const FeedbackCard = ({ index, testimonial, name, designation, company, image })
   )
 }
 
+const translations = {
+  pt: {
+    intro: "O que os outros dizem",
+    description: "Feedbacks.",
+  },
+  en: {
+    intro: "What others say",
+    description: "Feedback.",
+  },
+  de: {
+    intro: "Was andere sagen",
+    description: "Feedback.",
+  },
+};
+
+
 const Feedbacks = () => {
+  const { language } = useLanguage();
+  const { intro, description } = translations[language];
+
   return (
     <div className={`mt-12 bg-black-100 rounded-[20px]`}>
       <div
         className={`bg-tertiary rounded-2xl ${styles.padding} min-h-[300px]`}
       >
         <motion.div variants={textVariant()}>
-          <p className={styles.sectionSubText}>O que os outros dizem</p>
-          <h2 className={styles.sectionHeadText}>Feedbacks.</h2>
+          <p className={styles.sectionSubText}>{intro}</p>
+          <h2 className={styles.sectionHeadText}>{description}</h2>
         </motion.div>
       </div>
       <div className={`-mt-20 pb-14 ${styles.paddingX} flex flex-wrap gap-7`}>
-        {testimonials.map((testimonial, index) => (
+        {testimonials[language].map((testimonial, index) => (
           <FeedbackCard key={testimonial.name} index={index} {...testimonial} />
         ))}
       </div>

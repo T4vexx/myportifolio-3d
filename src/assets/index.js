@@ -21,12 +21,15 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import go from "./tech/go.svg";
+import java from "./tech/java.png";
 
 import meta from "./company/meta.png";
 import rgx from "./company/rgx.png";
 import burn from "./company/burn.png";
 import eccjr from "./company/eccjr.png";
 import usebens from "./company/usebens.png";
+import z2solutions from "./company/z2.png";
 
 import cacic from "./cacic.png"
 import semaped from "./semaped.png"
@@ -39,6 +42,10 @@ import tablet from "./tablet.png"
 import ignewes from "./ignewes.png"
 
 import rafaela from "./rafaela.webp"
+
+import brasil from "./tech/brasil.png"
+import america from "./tech/america.png"
+import alemanha from "./tech/deut.png"
 
 export {
   tablet,
@@ -78,4 +85,10 @@ export {
   usebens,
   user,
   rafaela,
+  z2solutions,
+  go,
+  java,
+  brasil,
+  america,
+  alemanha,
 };
