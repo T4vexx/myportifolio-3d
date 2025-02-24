@@ -97,11 +97,32 @@ const Navbar = () => {
                   <a href={`#${id}`}>{title[language]}</a>
                 </li>
               ))}
-               <li
-                  className="text-secondary font-poppins hover:text-white text-[18px] font-medium cursor-pointer"
+               <li className="text-secondary hover:text-white text-[18px] w-36 font-medium cursor-pointer flex items-center justify-center gap-2">
+              <div className="relative">
+                <button 
+                  onClick={() => setShowDropdown(!showDropdown)} 
+                  className="flex items-center gap-2 rounded px-2 black-gradient"
                 >
-                  <a>asdasd</a>
-                </li>
+                  <img src={languages.find(lang => lang.code === language).flag} className="h-4 w-5" alt="" />
+                  {languages.find(lang => lang.code === language).label}
+                </button>
+
+                {showDropdown && (
+                  <ul className="absolute mt-2 black-gradient rounded shadow-lg w-36">
+                    {languages.map(({ code, label, flag }) => (
+                      <li 
+                        key={code} 
+                        onClick={() => { changeLanguage(code); setShowDropdown(false); setToggle(!toggle);}}
+                        className="flex items-center gap-2 px-2 py-2 hover:bg-white/30 cursor-pointer"
+                      >
+                        {flag && <img src={flag} className="h-4 w-6" alt={label} />}
+                        {label}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
             </>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component"
 import { motion } from 'framer-motion'
-
+import { isMobile } from 'react-device-detect';
 import { styles } from "../styles"
 import { experiences } from "../constants"
 import SectionWrapper from '../hoc/SectionWrapper'
@@ -67,16 +67,26 @@ const Experience = () => {
 
   return (
     <>
-      <motion.div
-        variants={textVariant()}    
-      >
-        <p className={styles.sectionSubText}>
-          {intro}
-        </p>
-        <h2 className={styles.sectionHeadText}>
-          {description}
-        </h2>
-      </motion.div>
+      {isMobile ? (<div>
+          <p className={styles.sectionSubText}>
+            {intro}
+          </p>
+          <h2 className={styles.sectionHeadText}>
+            {description}
+          </h2>
+      </div> ) : (
+        <motion.div
+          variants={textVariant()}    
+        >
+          <p className={styles.sectionSubText}>
+            {intro}
+          </p>
+          <h2 className={styles.sectionHeadText}>
+            {description}
+          </h2>
+        </motion.div>
+      )
+      }
 
       <div className="mt-20 flex flex-col">
         <VerticalTimeline>

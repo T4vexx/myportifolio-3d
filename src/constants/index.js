@@ -233,9 +233,9 @@ const experiences = [
   },
   {
     title: {
-      pt: "Presidente | Desenvolvedor ReactJS/NextJS/Gatsby",
-      en: "President | ReactJS/NextJS/Gatsby Developer",
-      de: "Präsident | ReactJS/NextJS/Gatsby Entwickler",
+      pt: "Presidente | Desenvolvedor ReactJS/NextJS",
+      en: "President | ReactJS/NextJS Developer",
+      de: "Präsident | ReactJS/NextJS Entwickler",
     },
     company_name: "Empresa Junior de Ciência da Computação | UNESP/IBILCE",
     icon: eccjr,

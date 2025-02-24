@@ -6,6 +6,7 @@ import { styles } from '../styles'
 import { services } from '../constants'
 import { fadeIn, textVariant } from '../utils/motion'
 import { useLanguage } from '../contexts/LanguageContext'
+import { isMobile } from 'react-device-detect';
 
 const translations = {
   pt: {
@@ -62,16 +63,31 @@ const About = () => {
 
   return (
     <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>{intro}</p>
-        <h2 className={styles.sectionHeadText}>{overview}</h2>
-      </motion.div>
+      {isMobile ? 
+        (<>
+          <div>
+            <p className={styles.sectionSubText}>{intro}</p>
+            <h2 className={styles.sectionHeadText}>{overview}</h2>
+          </div>
+          <p
+            className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]" 
+            dangerouslySetInnerHTML={{ __html: description }} 
+          />
+        </>)
+      : 
+        (<>
+          <motion.div variants={textVariant()}>
+            <p className={styles.sectionSubText}>{intro}</p>
+            <h2 className={styles.sectionHeadText}>{overview}</h2>
+          </motion.div>
 
-      <motion.p
-        variants={fadeIn("","",0.1,1)}
-        className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]"
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
+          <motion.p
+            variants={fadeIn("","",0.1,1)}
+            className="mt-4 text-secondary text-[17px] max-w-5xl leading-[30px]"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+        </>)
+      }
 
       <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (
