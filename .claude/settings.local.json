@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(copy \"c:\\Users\\tavexx\\Desktop\\otavioaugustoresume.pdf\" \"C:\\Users\\tavexx\\Desktop\\myportifolio-3d\\public\\otavioaugustoresume.pdf\")"
+    ]
+  }
+}
