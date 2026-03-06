@@ -31,7 +31,8 @@ import {
   tablet,
   user,
   rafaela,
-  z2solutions
+  z2solutions,
+  ticketbro
 } from "../assets";
 
 export const navLinks = [
@@ -339,6 +340,47 @@ const experiences = [
       ],
     },
   },
+  {
+  title: {
+      pt: "Engenheiro de Software | Desenvolvedor Full Stack",
+      en: "Software Engineer | Full Stack Developer",
+      de: "Softwareingenieur | Full Stack Entwickler",
+    },
+    company_name: "Ticketbro | Munich, Alemanha (Remoto)",
+    icon: ticketbro,
+    iconBg: "#0f172a",
+    date: {
+      pt: "Mai 2025 - Atualmente",
+      en: "May 2025 - Present",
+      de: "Mai 2025 - Gegenwart",
+    },
+    points: {
+      pt: [
+        "Desenvolvimento de uma plataforma SaaS para agendamento online de serviços",
+        "Criação de soluções backend serverless com Node.js e AWS Lambda",
+        "Integração com DynamoDB para processamento de reservas em tempo real com baixa latência",
+        "Construção e manutenção de APIs RESTful utilizando AWS API Gateway",
+        "Desenvolvimento de interfaces responsivas e de alta performance com Next.js, React e TypeScript",
+        "Colaboração com equipes de produto e design em ambiente de startup para rápida evolução da plataforma",
+      ],
+      en: [
+        "Developing a SaaS platform for online service booking",
+        "Building serverless backend solutions using Node.js and AWS Lambda",
+        "Integrating DynamoDB to process real-time reservations with low latency",
+        "Building and maintaining RESTful APIs using AWS API Gateway",
+        "Developing responsive and high-performance interfaces with Next.js, React, and TypeScript",
+        "Collaborating with product and design teams in a startup environment for rapid platform iteration",
+      ],
+      de: [
+        "Entwicklung einer SaaS-Plattform für Online-Dienstleistungsbuchungen",
+        "Erstellung von serverlosen Backend-Lösungen mit Node.js und AWS Lambda",
+        "Integration von DynamoDB zur Verarbeitung von Echtzeit-Reservierungen mit geringer Latenz",
+        "Aufbau und Wartung von RESTful APIs mit AWS API Gateway",
+        "Entwicklung responsiver und leistungsstarker Oberflächen mit Next.js, React und TypeScript",
+        "Zusammenarbeit mit Produkt- und Designteams in einer Startup-Umgebung für schnelle Plattform-Iteration",
+      ],
+    },
+  }
 ];
 
 

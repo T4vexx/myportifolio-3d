@@ -30,6 +30,7 @@ import burn from "./company/burn.png";
 import eccjr from "./company/eccjr.png";
 import usebens from "./company/usebens.png";
 import z2solutions from "./company/z2.png";
+import ticketbro from "./company/ticketbro.svg"
 
 import cacic from "./cacic.png"
 import semaped from "./semaped.png"
@@ -86,6 +87,7 @@ export {
   user,
   rafaela,
   z2solutions,
+  ticketbro,
   go,
   java,
   brasil,
